@@ -1,0 +1,27 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+    <h1>Login</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            {{form.username}}
+        </p>
+        <p>
+            {{form.password}}
+        </p>
+        <p>
+            <input type="submit" name="Login" />
+        </p>
+        <p>
+            {% for message in messages %}
+            {{message}}
+            {% endfor %}
+        </p>
+        <p>
+            New User? <a href="{% url 'users:user-register' %}">Register</a>
+        </p>
+    </form>
+
+{% endblock %}

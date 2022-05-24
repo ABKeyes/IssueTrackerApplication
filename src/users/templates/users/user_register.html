@@ -1,0 +1,35 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+
+    <h1>Register</h1>
+
+    <form method="POST" action=".">
+        {% csrf_token %}
+
+        <div class="container">
+            <p>
+                {{form.username}}
+            </p>
+            <p>
+                {{form.email}}
+            </p>
+            {{form.password1}}
+            <p>
+                {{form.password2}}
+            </p>
+            <p>
+                {{form.errors}}
+            </p>
+            <p>
+                <input type="submit" name="Create User" />
+            </p>
+            <p>
+                Already have an account? <a href="{% url 'users:user-login' %}">Login</a>
+            </p>
+
+        </div>
+
+    </form>
+
+{% endblock %}

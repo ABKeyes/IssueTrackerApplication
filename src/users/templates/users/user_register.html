@@ -1,35 +1,39 @@
 {% extends 'layout/base.html' %}
 
 {% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/users.css' %}" />
 
-    <h1>Register</h1>
-
-    <form method="POST" action=".">
-        {% csrf_token %}
-
-        <div class="container">
-            <p>
-                {{form.username}}
-            </p>
-            <p>
-                {{form.email}}
-            </p>
-            {{form.password1}}
-            <p>
-                {{form.password2}}
-            </p>
-            <p>
-                {{form.errors}}
-            </p>
-            <p>
-                <input type="submit" name="Create User" />
-            </p>
-            <p>
-                Already have an account? <a href="{% url 'users:user-login' %}">Login</a>
-            </p>
-
+        <div class="user-container">
+            <section class="user-input">
+                <h1 class="user-p">Register</h1>
+                <form method="POST" action=".">
+                    {% csrf_token %}
+                    <div class="user-p">
+                        {{form.username}}
+                    </div>
+                    <div class="user-p">
+                        {{form.email}}
+                    </div>
+                    <div class="user-p">
+                        {{form.password1}}
+                    </div>
+                    <div class="user-p">
+                        {{form.password2}}
+                    </div>
+                    <div class="user-p">
+                        {{form.errors}}
+                    </div>
+                    <div class="user-p">
+                        <input type="submit" name="Create User" class="user-submit" />
+                    </div>
+                </form>
+                <div class="user-p">
+                    <label class="existing-user">Already have an account?</label>  <a href="{% url 'users:user-login' %}">Login</a>
+                </div>   
+            </section>
         </div>
 
-    </form>
+    
 
 {% endblock %}

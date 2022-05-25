@@ -1,0 +1,36 @@
+body {
+    margin: 0px;
+    background-color: white;
+    padding: 0;
+}
+
+.navbar {
+    background-color: dimgrey;
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+}
+
+.navbar a{
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+    text-decoration: none;
+}
+
+.user-manage {
+    float: right;
+}
+
+.user {
+    color: white;
+    float: left;
+    padding: 10px 15px;
+}
+
+.navbar a:hover {
+    background-color: lightgrey;
+    color: black;
+}
+

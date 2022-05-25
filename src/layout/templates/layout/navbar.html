@@ -1,16 +1,13 @@
-<nav style="background-color: aqua">
-    <label style="float: left">This is the nav bar, there will be links to cool stuff here eventually.</label>
-    <a href="{% url 'home' %}" style="float: left">Home</a>
-    <div style="float: right">
+<nav class="navbar">
+    <a href="{% url 'home' %}">Home</a>
+    <a href="{% url 'projects:projects-list' %}">Projects</a>
+    <section class="user-manage">
         {% if request.user.is_authenticated %}
-        Hello, {{ request.user }}
-        <a href="{% url 'users:user-logout' %}">Logout</a>
+        <label class="user">Hello, {{ request.user }}</label>
+        <a href="{% url 'users:user-logout' %}" class="user-manage">Logout</a>
         {% else %}
-        <a href="{% url 'users:user-login' %}">Login</a>
-        <a href="{% url 'users:user-register' %}">Register</a>
+        <a href="{% url 'users:user-login' %}" class="user-manage">Login</a>
+        <a class="user-manage" href="{% url 'users:user-register' %}">Register</a>
         {% endif %}
-
-    </div>
-    <br />
-    
+    </section>
 </nav>

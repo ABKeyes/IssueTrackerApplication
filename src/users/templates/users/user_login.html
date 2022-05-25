@@ -1,27 +1,32 @@
 {% extends 'layout/base.html' %}
 
 {% block content %}
-    <h1>Login</h1>
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/users.css' %}" />
 
-    <form method="POST">
-        {% csrf_token %}
-        <p>
-            {{form.username}}
-        </p>
-        <p>
-            {{form.password}}
-        </p>
-        <p>
-            <input type="submit" name="Login" />
-        </p>
-        <p>
-            {% for message in messages %}
-            {{message}}
-            {% endfor %}
-        </p>
-        <p>
-            New User? <a href="{% url 'users:user-register' %}">Register</a>
-        </p>
-    </form>
+<div class="user-container">
+    <section class="user-input">
+        <h1>Login</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="user-p">
+                {{form.username}}
+            </div>
+            <div class="user-p">
+                {{form.password}}
+            </div>
+            <div class="user-p">
+                {{form.errors}}
+            </div>
+            <div class="user-p">
+                <input type="submit" name="Login" class="user-submit"/>
+            </div>
+            <div class="user-p">
+                <label class="existing-user">New User?</label>   <a href="{% url 'users:user-register' %}">Register</a>
+            </div>
+        </form>
+    </section>
+</div>
+
 
 {% endblock %}

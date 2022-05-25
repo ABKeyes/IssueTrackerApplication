@@ -1,0 +1,52 @@
+.user-container {
+    margin: 0 auto;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    color: white;
+    margin-top: 0;
+}
+
+.user-p {
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.user-input {
+    background-color: dimgrey;
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px;
+    width: 100%;
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.s{
+    text-align: left;
+
+}
+
+.existing-user {
+    color: white;
+}
+
+
+.user-submit {
+    text-align: center;
+    width: 208px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.user-fields {
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+}

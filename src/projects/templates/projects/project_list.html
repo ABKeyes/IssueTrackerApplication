@@ -1,0 +1,14 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<h1>Projects</h1>
+{% if user.is_authenticated %}
+<div>
+    TODO: add projects logic
+</div>
+{% else %}
+<div>
+    If you were logged in your projects would go here.
+</div>
+{% endif %}
+{% endblock %}

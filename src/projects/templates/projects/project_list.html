@@ -4,7 +4,16 @@
 <h1>Projects</h1>
 {% if user.is_authenticated %}
 <div>
-    TODO: add projects logic
+    {% if project_list.all %}
+    <ul>
+        {% for project in project_list %}
+        <li>{{ project.name }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <div>There are no projects</div>
+    {% endif %}
+    <a href="{% url 'projects:project-create' %}">Create Project</a>
 </div>
 {% else %}
 <div>

@@ -1,0 +1,8 @@
+.project-container {
+}
+
+.project-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

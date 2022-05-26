@@ -1,0 +1,30 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/project.css' %}" />
+<h1>Create Project</h1>
+<div class="project-container">
+    <section class="project-input">
+        <form method="post">
+            {% csrf_token %}
+
+            <label class="project-field-label">Project Name</label>
+            <div class="project-field">
+                {{ form.name }}
+            </div>
+            <label class="project-field-label">Summary</label>
+            <div class="project-field">
+                {{ form.summary }}
+            </div>
+            <label class="project-field-label">Description</label>
+            <div class="project-field">
+                {{ form.description }}
+            </div>
+            <div class="project-field">
+                <input type="submit" name="Create" class="create-submit" />
+            </div>
+        </form>
+    </section>
+</div>
+{% endblock %}

@@ -1,6 +1,6 @@
 <nav class="navbar">
     <a href="{% url 'home' %}">Home</a>
-    <a href="{% url 'projects:projects-list' %}">Projects</a>
+    <a href="{% url 'projects:project-list' %}">Projects</a>
     <section class="user-manage">
         {% if request.user.is_authenticated %}
         <label class="user">Hello, {{ request.user }}</label>

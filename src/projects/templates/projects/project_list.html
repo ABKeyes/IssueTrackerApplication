@@ -1,19 +1,44 @@
 {% extends 'layout/base.html' %}
 
 {% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/project.css' %}" />
 <h1>Projects</h1>
 {% if user.is_authenticated %}
-<div>
+<div class="project-list">
     {% if project_list.all %}
-    <ul>
-        {% for project in project_list %}
-        <li>{{ project.name }}</li>
-        {% endfor %}
-    </ul>
+
+    {% for project in project_list %}
+    <div class="project">
+        <h2>{{ project.name }}</h2>
+        
+        <div class="project">
+            <h3>Summary:</h3>
+            <div class="project-field">
+                {{ project.summary }}
+            </div>
+            {% if project.status == 'Closed' %}
+            <div class="status-closed">
+            {% elif project.status == 'Open' %}
+            <div class="status-open">
+            {% else %}
+            <div class="status-dis">
+            {% endif %}
+                {{ project.status }}
+            </div>
+        </div>
+        <a href="{{ project.get_absolute_url }}">Select</a>
+        
+    </div>
+    {% endfor %}
+
     {% else %}
     <div>There are no projects</div>
     {% endif %}
-    <a href="{% url 'projects:project-create' %}">Create Project</a>
+    <div class="project">
+        <a href="{% url 'projects:project-create' %}" class="project-create">Create Project</a>
+    </div>  
 </div>
 {% else %}
 <div>

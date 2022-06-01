@@ -22,6 +22,11 @@
                 <input type="submit" name="Login" class="user-submit"/>
             </div>
             <div class="user-p">
+                {% for message in messages %}
+                <label class="error">{{message}}</label>
+                {% endfor %}
+            </div>
+            <div class="user-p">
                 <label class="existing-user">New User?</label>   <a href="{% url 'users:user-register' %}">Register</a>
             </div>
         </form>

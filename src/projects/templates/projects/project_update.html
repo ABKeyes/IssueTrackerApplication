@@ -1,0 +1,17 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/project.css' %}" />
+
+<h1>Update Project</h1>
+<div class="project-container">
+    <section class="project-input">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="project-field">
+                <label class="project-field-label">Project Name</label>
+            </div>
+        </form>
+    </section>
+</div>

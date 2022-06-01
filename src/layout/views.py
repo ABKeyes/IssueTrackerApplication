@@ -6,3 +6,4 @@ def home_view(request):
     context = {}
 
     return render(request, "layout/home.html", context)
+

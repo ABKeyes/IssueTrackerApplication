@@ -4,35 +4,35 @@
 {% load static %}
 <link rel="stylesheet" href="{% static '/css/users.css' %}" />
 
-        <div class="user-container">
-            <section class="user-input">
-                <h1 class="user-p">Register</h1>
-                <form method="POST" action=".">
-                    {% csrf_token %}
-                    <div class="user-p">
-                        {{form.username}}
-                    </div>
-                    <div class="user-p">
-                        {{form.email}}
-                    </div>
-                    <div class="user-p">
-                        {{form.password1}}
-                    </div>
-                    <div class="user-p">
-                        {{form.password2}}
-                    </div>
-                    <div class="user-p">
-                        {{form.errors}}
-                    </div>
-                    <div class="user-p">
-                        <input type="submit" name="Create User" class="user-submit" />
-                    </div>
-                </form>
+    <div class="user-container">
+        <section class="user-input">
+            <h1 class="user-p">Register</h1>
+            <form method="POST" action=".">
+                {% csrf_token %}
                 <div class="user-p">
-                    <label class="existing-user">Already have an account?</label>  <a href="{% url 'users:user-login' %}">Login</a>
-                </div>   
-            </section>
-        </div>
+                    {{form.username}}
+                </div>
+                <div class="user-p">
+                    {{form.email}}
+                </div>
+                <div class="user-p">
+                    {{form.password1}}
+                </div>
+                <div class="user-p">
+                    {{form.password2}}
+                </div>
+                <div class="user-p">
+                    {{form.errors}}
+                </div>
+                <div class="user-p">
+                    <input type="submit" name="Create User" class="user-submit" />
+                </div>
+            </form>
+            <div class="user-p">
+                <label class="existing-user">Already have an account?</label>  <a href="{% url 'users:user-login' %}">Login</a>
+            </div>   
+        </section>
+    </div>
 
     
 

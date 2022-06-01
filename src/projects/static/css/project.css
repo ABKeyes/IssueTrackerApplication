@@ -1,8 +1,59 @@
 .project-container {
 }
 
-.project-input {
-    display: flex;
-    flex-direction: column;
+.project-field-label {
+    display: block;
+}
+
+.project-list { 
     justify-content: center;
+}
+
+.project-list a {
+    text-align: center;
+    padding: 10px 15px;
+    background-color: dimgrey;
+    max-width: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.project-input {
+    justify-content: center;
+}
+
+.project-field {
+    display: block;
+}
+
+.status-closed {
+    color: red;
+    border: 1px solid red;
+}
+
+.status-open {
+    color: green;
+    border: 1px solid green;
+}
+
+.status-dis {
+    color: yellow;
+    border: 1px solid green;
+    
+}
+
+.status-closed, .status-open, .status-dis {
+    width: fit-content;
+}
+
+.project {
+    display: block;
+    margin-bottom: 20px;
+}
+.project h2 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.error {
+    color: red;
 }

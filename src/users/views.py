@@ -25,9 +25,9 @@ def login_view(request):
         if user is not None:
             print("User is valid")
             login(request, user)
-            return redirect('home')
+            return redirect(request.GET.get('next', 'home'))
 
-        messages.error(request, "Username or password is incorrect")
+        messages.error(request, "Username or password is incorrect.")
         return render(request, "users/user_login.html", context)
 
     return render(request, "users/user_login.html", context)

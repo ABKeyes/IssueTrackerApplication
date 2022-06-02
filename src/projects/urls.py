@@ -1,4 +1,5 @@
 from django.urls import path
+from django.urls.conf import include
 
 
 from .views import (
@@ -16,4 +17,5 @@ urlpatterns=[
     path('<uuid:project_id>/', project_details_view, name='project-details'),
     path('<uuid:project_id>/update/', project_update_view, name='project-update'),
     path('<uuid:project_id>/delete', project_delete_view, name='project-delete'),
+    path('<uuid:project_id/issues/', include('issues.urls')),
     ]

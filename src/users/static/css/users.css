@@ -32,6 +32,9 @@ h1 {
     text-align: left;
 
 }
+a {
+    color: white;
+}
 
 .error {
     color: orangered;

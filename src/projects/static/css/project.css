@@ -1,21 +1,28 @@
-.project-container {
-}
-
 .project-field-label {
     display: block;
 }
 
 .project-list { 
     justify-content: center;
+    margin-bottom: 20px;
 }
 
-.project-list a {
+.project-container {
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.project-container a, .submit {
     text-align: center;
     padding: 10px 15px;
     background-color: dimgrey;
-    max-width: 50px;
     margin-top: 10px;
     margin-bottom: 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    border: hidden;
 }
 
 .project-input {
@@ -24,36 +31,45 @@
 
 .project-field {
     display: block;
+    padding: 5px;
+    margin-bottom: 10px;
 }
 
 .status-closed {
     color: red;
-    border: 1px solid red;
+    border-color: red;
 }
 
 .status-open {
     color: green;
-    border: 1px solid green;
+    border-color: green;
 }
 
 .status-dis {
-    color: yellow;
-    border: 1px solid green;
-    
+    color: #b0c4de;
+    border-color: #b0c4de;
 }
 
 .status-closed, .status-open, .status-dis {
     width: fit-content;
+    border: 3px solid;
+    padding: 2px 5px;
+    border-radius: 10px;
 }
 
 .project {
     display: block;
+    margin-top: 20px;
     margin-bottom: 20px;
+    border: 1px solid;
+    border-radius: 25px;
+    padding: 15px;
 }
-.project h2 {
+.project h1, h2, h3 {
     margin-top: 0;
     margin-bottom: 0;
 }
+
 .error {
     color: red;
 }

@@ -19,6 +19,13 @@ def project_list_view(request):
     context = {}
     return render(request, "projects/project_list.html", context)
 
+def check_ownership(obj, request):
+    print(obj.user)
+    print(request.user)
+    if obj.user == request.user:
+        return True
+    print("User is not the owner of this project,")
+    return False
 
 @login_required()
 def project_create_view(request):
@@ -50,6 +57,10 @@ def project_create_view(request):
 def project_update_view(request, project_id):
 
     obj = get_object_or_404(Project, id=project_id)
+    
+    if check_ownership(obj, request) == False:
+        return redirect('home')
+
     form = ProjectForm(request.POST or None, instance=obj)
     context = { 
         "form": form ,
@@ -73,6 +84,9 @@ def project_update_view(request, project_id):
 def project_details_view(request, project_id):
 
     obj = get_object_or_404(Project, id=project_id)
+    
+    if not check_ownership(obj, request):
+        return redirect('home')
 
     context = {
         "project": obj
@@ -84,8 +98,10 @@ def project_details_view(request, project_id):
 @login_required()
 def project_delete_view(request, project_id):
 
-    obj = get_object_or_404(Project, id=project_id, user=request.user)
-    print(obj)
+    obj = get_object_or_404(Project, id=project_id)
+
+    if check_ownership(obj, request) == False:
+        return redirect('home')
 
     if request.method == "POST":
         print("Deleteing")

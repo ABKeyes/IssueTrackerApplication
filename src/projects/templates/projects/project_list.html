@@ -4,6 +4,8 @@
 
 {% load static %}
 <link rel="stylesheet" href="{% static '/css/project.css' %}" />
+<title>Project List</title>
+<div class="project-container">
 <h1>Projects</h1>
 {% if user.is_authenticated %}
 <div class="project-list">
@@ -12,12 +14,12 @@
     {% for project in project_list %}
     <div class="project">
         <h2>{{ project.name }}</h2>
-        
-        <div class="project">
+        <div class="project-field">
             <h3>Summary:</h3>
-            <div class="project-field">
-                {{ project.summary }}
-            </div>
+            {{ project.summary }}
+        </div>
+        <div class="project-field">
+            <h3>Status:</h3>
             {% if project.status == 'Closed' %}
             <div class="status-closed">
             {% elif project.status == 'Open' %}
@@ -28,21 +30,30 @@
                 {{ project.status }}
             </div>
         </div>
-        <a href="{{ project.get_absolute_url }}">Select</a>
+        
+        <div class="project-field">
+            <a href="{{ project.get_absolute_url }}">Select</a>
+        </div>
+        
         
     </div>
     {% endfor %}
 
     {% else %}
-    <div>There are no projects</div>
+    <div class="project-list">There are no projects</div>
     {% endif %}
-    <div class="project">
-        <a href="{% url 'projects:project-create' %}" class="project-create">Create Project</a>
-    </div>  
+     
 </div>
+    <div>
+        <a href="{% url 'projects:project-create' %}" class="project-create">Create Project</a>
+    </div>
+        
+   
 {% else %}
 <div>
-    If you were logged in your projects would go here.
+    <label>If you were logged in your projects would go here.</label>
+    <a href="{% url 'users:user-login' %}">Login</a>
 </div>
 {% endif %}
+</div>
 {% endblock %}

@@ -1,11 +1,33 @@
 {% extends 'layout/base.html' %}
 
 {% block content %}
-<h1>{{project.name}}</h1>
-<h2>Summary:</h2>
-<p>{{project.summary}}</p>
-<h2>Description:</h2>
-<p>{{project.description}}</p>
-<a href="{{ project.get_update_url }}">Update</a>
-<a href="{{ project.get_delete_url }}">Delete</a>
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/project.css' %}" />
+<div class="project-container">
+    <div class="project">
+        <h1>{{project.name}}</h1>
+        <div class="project-field">
+            <h2>Summary:</h2>
+            {{project.summary}}
+        </div>
+        <div class="project-field">
+            <h2>Description:</h2>
+            {{project.description}}
+        </div>
+        <div class="project-field">
+            <h2>Status:</h2>
+            {% if project.status == 'Closed' %}
+            <div class="status-closed">
+            {% elif project.status == 'Open' %}
+            <div class="status-open">
+            {% else %}
+            <div class="status-dis">
+            {% endif %}
+                {{ project.status }}
+            </div>
+        </div>
+        <a href="{{ project.get_update_url }}">Update</a>
+        <a href="{{ project.get_delete_url }}">Delete</a>
+    </div>
+</div>
 {% endblock %}

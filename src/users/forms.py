@@ -11,15 +11,18 @@ class CreateUserForm(UserCreationForm):
 
     email = forms.CharField(widget=forms.TextInput(
                                 attrs={"placeholder": "email",
-                                       "class": "user-fields"}))
+                                       "class": "user-fields",
+                                       "type": "email"}))
 
     password1 = forms.CharField(widget=forms.TextInput(
                                 attrs={"placeholder": "password",
-                                       "class": "user-fields"}))
+                                       "class": "user-fields",
+                                       "type": "password",}))
 
     password2 = forms.CharField(widget=forms.TextInput(
                                 attrs={"placeholder": "re-enter password",
-                                       "class": "user-fields"}))
+                                       "class": "user-fields",
+                                       "type": "password",}))
 
 
     class Meta:
@@ -32,5 +35,6 @@ class LoginUserForm(forms.Form):
                                        "class": "user-fields"}))
     password = forms.CharField(widget=forms.TextInput(
                                 attrs={"placeholder": "password",
-                                       "class": "user-fields"}))
+                                       "class": "user-fields",
+                                       "type": "password",}))
 

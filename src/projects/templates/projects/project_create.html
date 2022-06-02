@@ -3,15 +3,16 @@
 {% block content %}
 {% load static %}
 <link rel="stylesheet" href="{% static '/css/project.css' %}" />
-{% if update == True %}
-<h1>Update Project</h1>
-{% else %}
-<h1>Create Project</h1>
-{% endif %}
+
 <div class="project-container">
+    {% if update == True %}
+    <h1>Update Project</h1>
+    {% else %}
+    <h1>Create Project</h1>
+    {% endif %}
     <section class="project-input">
         <form method="POST">
-            {% csrf_token %} 
+            {% csrf_token %}
             <div class="project-field">
                 <label class="project-field-label">Project Name</label>
                 {{ form.name }}
@@ -24,12 +25,13 @@
                 <label class="project-field-label">Description:</label>
                 {{ form.description }}
             </div>
-            <div>
+            <div class="project-field">
                 <label class="project-field-label">Status:</label>
                 {{ form.status }}
             </div>
             <div class="project-field">
-                <input type="submit" name="Create" class="create-submit" />
+                <input type="submit" name="Create" class="submit" />
+                <a href="../">Cancel</a>
             </div>
             <div class="project-field">
                 {% for message in messages %}

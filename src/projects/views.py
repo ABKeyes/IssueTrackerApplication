@@ -1,4 +1,6 @@
 from django.shortcuts import get_object_or_404, redirect, render
+
+from issues.models import Issue
 from .models import Project
 
 from django.contrib.auth.decorators import login_required
@@ -20,6 +22,7 @@ def project_list_view(request):
     return render(request, "projects/project_list.html", context)
 
 def check_ownership(obj, request):
+    print("Checking ownership")
     print(obj.user)
     print(request.user)
     if obj.user == request.user:
@@ -76,7 +79,7 @@ def project_update_view(request, project_id):
                 "update": True}
                 return render(request, "projects/project_create.html", context)
         form.save()
-        return redirect('projects:project-list')
+        return redirect(obj.get_absolute_url())
 
     return render(request, "projects/project_create.html", context)
 
@@ -88,9 +91,14 @@ def project_details_view(request, project_id):
     if not check_ownership(obj, request):
         return redirect('home')
 
+    issueset = Issue.objects.filter(project=obj)
+
     context = {
-        "project": obj
+        "project": obj,
+        "issueset": issueset,
         }
+
+    print(issueset.count())
 
     return render(request, "projects/project_details.html", context)
 

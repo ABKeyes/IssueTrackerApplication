@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'users',
     'projects',
     'layout',
+    'issues',
 ]
 
 MIDDLEWARE = [

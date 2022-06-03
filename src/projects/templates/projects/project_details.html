@@ -29,5 +29,38 @@
         <a href="{{ project.get_update_url }}">Update</a>
         <a href="{{ project.get_delete_url }}">Delete</a>
     </div>
+    <div class="issue-list">
+        <h1>Issues</h1>
+        <a href="{{ project.get_issue_create_url }}">Create Issue</a>
+        {% if issueset.all %}
+
+            {% for issue in issueset %}
+            <div class="issue">
+                <h2>{{ issue.issueName }}</h2>
+                <div class="issue-field">
+                    <h3>Description:</h3>
+                    {{ issue.description }}
+                </div>
+                <div class="issue-field">
+                    <h3>Status:</h3>
+                    {% if issue.status == 'Closed' %}
+                    <div class="status-closed">
+                    {% elif issue.status == 'Open' %}
+                    <div class="status-open">
+                    {% else %}
+                    <div class="status-dis">
+                    {% endif %}
+                        {{ issue.status }}
+                    </div>
+                </div>
+                <div class="issue-field">
+                    <a href="{{ issue.get_absolute_url }}">Details</a>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+        <div class="issue-list">There are no issue, you should add some.</div>
+        {% endif %}
+    </div>
 </div>
 {% endblock %}

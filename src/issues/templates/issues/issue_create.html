@@ -1,0 +1,40 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/project.css' %}" />
+
+<div class="issue-container">
+    {% if update == True %}
+    <h1>Update Issue</h1>
+    {% else %}
+    <h1>Create Issue</h1>
+    {% endif %}
+    <section class="issue-input">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="issue-field">
+                <h2>Issue Name</h2>
+                {{ form.issueName }}
+            </div>
+            <div class="issue-field">
+                <h2>Description</h2>
+                {{ form.description }}
+            </div>
+            <div class="issue-field">
+                <h2>Status:</h2>
+                {{ form.status }}
+            </div>
+            <div class="issue-field">
+                <input type="submit" name="Create" class="submit"/>
+                <a href="../../">Cancel</a>
+            </div>
+            <div class="issue-field">
+                {% for message in messages %}
+                <label class="error">{{message}}</label>
+                {% endfor %}
+            </div>
+        </form>
+    </section>
+</div>
+{% endblock %}

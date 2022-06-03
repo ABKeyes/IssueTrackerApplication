@@ -34,3 +34,6 @@ class Project(models.Model):
 
     def get_delete_url(self):
         return reverse("projects:project-delete", kwargs={"project_id": self.id})
+
+    def get_issue_create_url(self):
+        return reverse("projects:issues:issue-create", kwargs={"project_id": self.id})

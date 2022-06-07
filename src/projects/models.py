@@ -10,8 +10,6 @@ User = get_user_model()
 
 # Create your models here.
 
-
-
 class Project(models.Model):
     user_max_length = 150
     project_max_length = 50

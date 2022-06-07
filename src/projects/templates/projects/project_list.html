@@ -50,9 +50,11 @@
         
    
 {% else %}
-<div>
-    <label>If you were logged in your projects would go here.</label>
-    <a href="{% url 'users:user-login' %}">Login</a>
+<div class="no-projects">
+    <label class="no-projects">If you were logged in your projects would go here.</label>
+    <div class="no-projects">
+        <a href="{% url 'users:user-login' %}">Login</a>
+    </div>
 </div>
 {% endif %}
 </div>

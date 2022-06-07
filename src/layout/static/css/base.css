@@ -19,6 +19,24 @@ body {
     text-decoration: none;
 }
 
+.home-container a {
+    text-align: center;
+    padding: 10px 15px;
+    background-color: dimgrey;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    border: hidden;
+    font-size: 40px;
+}
+
+.home-field {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
 .user-manage {
     float: right;
 }
@@ -34,3 +52,12 @@ body {
     color: black;
 }
 
+.home-container {
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.home-text {
+    font-size: 30px;
+}

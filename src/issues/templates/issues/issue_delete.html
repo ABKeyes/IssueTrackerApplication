@@ -1,0 +1,15 @@
+{% extends 'layout/base.html' %}\
+
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/project.css' %}" />
+<div class="issue-container">
+    <form method="POST">
+        {% csrf_token %}
+        <h1>Do you want to delete issue: "{{ issue.issueName}}"?</h1>
+        <p><input type="submit" value="Yes" class="submit"/>
+        <a href="{{ issue.get_absolute_url }}">Cancel</a></p>
+    </form>
+</div>
+
+{% endblock %}

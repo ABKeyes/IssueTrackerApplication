@@ -91,7 +91,7 @@ def project_details_view(request, project_id):
     if not check_ownership(obj, request):
         return redirect('home')
 
-    issueset = Issue.objects.filter(project=obj)
+    issueset = Issue.objects.filter(project=obj).order_by('-status')
 
     context = {
         "project": obj,

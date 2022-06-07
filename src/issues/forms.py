@@ -1,6 +1,6 @@
 from django import forms
 
-from issues.models import Issue, IssueComment
+from issues.models import Issue, Comment, Tag
 
 status_choices = (
     ("Open", "Open"),
@@ -42,13 +42,24 @@ class UpdateIssueForm(forms.ModelForm):
         model = Issue
         fields = ['description', 'status']
 
-class issueComment(forms.ModelForm):
+class CreateCommentForm(forms.ModelForm):
     description = forms.CharField(required=True,
                                   max_length=200,
-                                  widget=forms.TextInput(
+                                  widget=forms.Textarea(
                                       attrs={
                                           "placeholder": "Insert new comment.",
                                           }))
     class Meta:
-        model = IssueComment
+        model = Comment
         fields = ['description']
+
+class CreateTagForm(forms.ModelForm):
+    name = forms.CharField(required=True,
+                           max_length=20,
+                           widget=forms.TextInput(
+                               attrs={
+                                   "placeholder": "Insert Tag",
+                                   }))
+    class Meta:
+        model = Tag
+        fields = ['name']

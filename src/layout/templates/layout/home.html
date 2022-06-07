@@ -1,6 +1,22 @@
 {% extends 'layout/base.html' %}
 
 {% block content %}
-    <h1>Home</h1>
-    This is the home screen, there will be cool stuff here eventually.
+<div class="home-container">
+    <p class="home-text">
+        Welcome to the project issue tracker application.
+        This application allows the user to create projects and track issues related to its development.
+    </p>
+    <div class="home-field">
+        <a href="{% url 'projects:project-list' %}">Project List</a>
+        <a href="{% url 'projects:project-create' %}">Create a Project</a>
+    </div>
+    {% if not request.user.is_authenticated %}
+    <div class="home-field">
+        <a href="{% url 'users:user-login' %}">Login</a>
+        <a href="{% url 'users:user-register' %}">Register</a>
+    </div>
+    {% endif %}
+</div>
+    
+    
 {% endblock %}

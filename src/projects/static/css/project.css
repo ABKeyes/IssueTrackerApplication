@@ -13,6 +13,7 @@
     width: 40%;
 }
 
+
 .project-container a, .submit, .issue-container a {
     text-align: center;
     padding: 10px 15px;
@@ -23,6 +24,35 @@
     text-decoration: none;
     border-radius: 10px;
     border: hidden;
+}
+
+.tag a {
+    padding: 0;
+    padding-top: 1px;
+    color: black;
+    background-color: white;
+}
+
+.tag a:hover{
+    color: red;
+}
+
+.tag {
+    margin-bottom: 5px;
+}
+
+.issue-details {
+    
+    display: inline-block;
+    width: 45%;
+    height: auto;
+    vertical-align: top;
+
+}
+
+.no-projects {
+    display: block;
+    margin-bottom: 20px;
 }
 
 .project-input, .issue-input {
@@ -50,7 +80,7 @@
     border-color: #b0c4de;
 }
 
-.status-closed, .status-open, .status-dis {
+.status-closed, .status-open, .status-dis, .tag {
     width: fit-content;
     border: 3px solid;
     padding: 2px 5px;
@@ -66,13 +96,13 @@
     padding: 15px;
 }
 
-.project-container h1 {
-    margin-top: 0;
-    margin-bottom 0;
+.no-comments, .no-tags, .tag-list {
+    margin-top: 20px;
 }
-.project  h1, h2, h3 {
+
+h1, h2, h3 {
     margin-top: 0;
-    margin-bottom: 0;
+    margin-bottom: 15px;
 }
 
 .error {

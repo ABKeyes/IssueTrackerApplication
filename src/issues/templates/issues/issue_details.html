@@ -6,7 +6,8 @@
 <div class="project-container">
     <div class="issue">
         <h1>{{ issue.issueName }}</h1>
-        <form method="POST">
+        <form method="POST" class="issue-details">
+
             {% csrf_token %}
             <div class="issue-field">
                 <h2>Description:</h2>
@@ -16,9 +17,42 @@
                 <h2>Status:</h2>
                 {{ form.status }}
             </div>
-            <input type="submit" value="Update" class="submit"/>
+            <input type="submit" value="Update" class="submit" />
+            <a href="{{ issue.get_delete_url }}">Delete</a>
             <a href="{{ issue.get_project_url }}">Back</a>
         </form>
+        <div class="issue-details">
+            <div class="issue-field">
+                <h2>Tags:</h2>
+                <a href="{{ issue.get_add_tag }}">Add tag</a>
+                {% if tags.all %}
+                <div class="tag-list">
+                    {% for tag in tags %}
+                    <div class="tag">
+                        {{ tag.name }}
+                        <a href="{{ tag.get_delete_tag_url }}" class="tag-a">&#10006</a>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                    <div class="no-tags">There are no tags, you should add some.</div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="issue-list">
+        <h1>Comments</h1>
+        <a href="{{ issue.get_comment_create_url }}">Add commment</a>
+        {% if comments.all %}
+            {% for comment in comments %}
+                <div class="issue">
+                    {{ comment.timecreated }}
+                    {{ comment.description }}
+                </div>
+            {% endfor %}
+        {% else %}
+        <div class="no-comments">There are no comments, you should add some.</div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

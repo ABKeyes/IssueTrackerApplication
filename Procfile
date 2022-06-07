@@ -1,1 +1,1 @@
-web: gunicorn src.issuetracker.wsgi
+web: gunicorn --chdir src issuetracker.wsgi

@@ -1,1 +1,1 @@
-web: gunicorn issuetracker.wsgi
+web: gunicorn src.issuetracker.wsgi

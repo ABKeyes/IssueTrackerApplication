@@ -8,7 +8,6 @@ status_choices = (
 )
 
 class ProjectForm(forms.ModelForm):
-    #user = forms.CharField(max_length=150)
     name = forms.CharField(required=True, 
                            max_length=50, 
                            widget=forms.TextInput(
@@ -30,3 +29,9 @@ class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
         fields = ['name', 'summary', 'description', 'status']
+
+
+class ProjectUserForm(forms.Form):
+    username = forms.CharField(widget=forms.TextInput(
+                                attrs={"placeholder": "Insert username",
+                                       }))

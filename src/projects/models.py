@@ -35,3 +35,15 @@ class Project(models.Model):
 
     def get_issue_create_url(self):
         return reverse("projects:issues:issue-create", kwargs={"project_id": self.id})
+
+    def get_add_user_url(self):
+        return reverse("projects:project-add-user", kwargs={"project_id": self.id})
+
+
+class ProjectUser(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE)
+
+    def get_delete_url(self):
+        return reverse("projects:project-remove-user", kwargs={"project_id": self.project.id,
+                                                               "puser_id": self.id})

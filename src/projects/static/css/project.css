@@ -8,11 +8,11 @@
 }
 
 .project-container, .issue-container {
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     width: 40%;
 }
-
 
 .project-container a, .submit, .issue-container a {
     text-align: center;
@@ -24,30 +24,60 @@
     text-decoration: none;
     border-radius: 10px;
     border: hidden;
+    white-space: nowrap;
+    font-size: 20px;
 }
 
-.tag a {
+.tag a, .user-field a {
     padding: 0;
     padding-top: 1px;
     color: black;
     background-color: white;
 }
 
-.tag a:hover{
+.tag label {
+    font-size: 25px;
+}
+
+.tag a:hover, .user-field a:hover{
     color: red;
 }
 
-.tag {
+.tag, .user-field {
     margin-bottom: 5px;
+    font-size: 20px;
+    height: fit-content;
 }
 
-.issue-details {
-    
+textarea {
+    width: 90%;
+    height: 50%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 15px;
+    resize: none;
+}
+
+select, select:active, select:hover {
+    border-radius: 10px;
+}
+
+select:focus {
+    border-radius: 10px 10px 0px 0px;
+}
+
+.issue-details, .issue-tags, .project-details, .project-users {
     display: inline-block;
-    width: 45%;
+    width: 65%;
     height: auto;
     vertical-align: top;
+}
 
+.issue-tags, .project-users {
+    width: 30%;
+    margin-left: auto;
+    margin-right: 0px;
 }
 
 .no-projects {
@@ -80,20 +110,39 @@
     border-color: #b0c4de;
 }
 
-.status-closed, .status-open, .status-dis, .tag {
+.status-closed, .status-open, .status-dis, .tag, .user-field {
     width: fit-content;
-    border: 3px solid;
+    border: 2.5px solid;
     padding: 2px 5px;
     border-radius: 10px;
 }
 
-.project, .issue {
+.project, .issue, .comment {
     display: block;
     margin-top: 20px;
     margin-bottom: 20px;
     border: 1px solid;
     border-radius: 25px;
     padding: 15px;
+}
+
+.comment-description, .comment-timestamp {
+    display: inline-block;
+}
+
+.comment-description {
+    overflow-wrap: break-word;
+    width: 70%;
+    margin-left: 0px;
+    margin-right: auto;
+}
+.comment-timestamp {
+   vertical-align: top;
+   margin-right: 0px;
+   margin-left: auto;
+   text-align: right;
+   width: 30%;
+   float: right;
 }
 
 .no-comments, .no-tags, .tag-list {

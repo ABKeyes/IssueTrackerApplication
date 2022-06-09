@@ -6,39 +6,61 @@
 <div class="project-container">
     <div class="project">
         <h1>{{project.name}}</h1>
-        <div class="project-field">
-            <h2>Summary:</h2>
-            {{project.summary}}
-        </div>
-        <div class="project-field">
-            <h2>Description:</h2>
-            {{project.description}}
-        </div>
-        <div class="project-field">
-            <h2>Status:</h2>
-            {% if project.status == 'Closed' %}
-            <div class="status-closed">
-            {% elif project.status == 'Open' %}
-            <div class="status-open">
-            {% else %}
-            <div class="status-dis">
-            {% endif %}
-                {{ project.status }}
+        <h2>Owner: {{ project.user.username }}</h2>
+        <div class="project-details">
+            <div class="project-field">
+                <h2>Summary:</h2>
+                {{project.summary}}
             </div>
+            <div class="project-field">
+                <h2>Description:</h2>
+                {{project.description}}
+            </div>
+            <div class="project-field">
+                <h2>Status:</h2>
+                {% if project.status == 'Closed' %}
+                <div class="status-closed">
+                {% elif project.status == 'Open' %}
+                <div class="status-open">
+                {% else %}
+                <div class="status-dis">
+                {% endif %}
+                    {{ project.status }}
+                </div>
+            </div>
+            {% if project.user == request.user %}
+            <a href="{{ project.get_update_url }}">Update</a>
+            <a href="{{ project.get_add_user_url }}">Add User</a>
+            <a href="{{ project.get_delete_url }}">Delete</a>
+            {% endif %}
         </div>
-        <a href="{{ project.get_update_url }}">Update</a>
-        <a>Add User</a>
-        <a href="{{ project.get_delete_url }}">Delete</a>
+        <div class="project-users">
+            <h2>Project Users:</h2>
+            {% if users.all %}
+            {% for user in users %}
+            <div class="user-field">
+                <label>
+                    {{ user.user.username }}
+                </label>
+                <a href="{{ user.get_delete_url }}" class="user-a">&#10006</a>
+            </div>
+            {% endfor %}
+            {% else %}
+            <label>There are no other users in this project. You should add some to collaborate.</label>
+            {% endif %}
+        </div>
     </div>
+    
+    
     <div class="issue-list">
         <h1>Issues</h1>
         <a href="{{ project.get_issue_create_url }}">Create Issue</a>
         {% if issueset.all %}
-
             {% for issue in issueset %}
             <div class="issue">
                 <h2>{{ issue.issueName }}</h2>
-                <div class="issue-field">
+                <div class="issue-details">
+                    <div class="issue-field">
                     <h3>Description:</h3>
                     {{ issue.description }}
                 </div>
@@ -57,6 +79,22 @@
                 <div class="issue-field">
                     <a href="{{ issue.get_absolute_url }}">Details</a>
                 </div>
+                </div>
+                <div class="issue-tags">
+                    <div class="issue-field">
+                        <h2>Tags:</h2>
+                        <div class="tag-list">
+                        {% for tag in tags %}
+                            {% if tag.issue.issueName == issue.issueName %}
+                            <div class="tag">
+                                {{ tag.name }}
+                            </div>
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                
             </div>
             {% endfor %}
         {% else %}

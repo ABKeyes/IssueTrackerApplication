@@ -7,13 +7,21 @@
         This application allows the user to create projects and track issues related to its development.
     </p>
     <div class="home-field">
-        <a href="{% url 'projects:project-list' %}">Project List</a>
-        <a href="{% url 'projects:project-create' %}">Create a Project</a>
+        <div class="home-button">
+            <a href="{% url 'projects:project-list' %}">Project List</a>
+        </div>
+        <div class="home-button">
+            <a href="{% url 'projects:project-create' %}">Create a Project</a>
+        </div>
     </div>
     {% if not request.user.is_authenticated %}
     <div class="home-field">
-        <a href="{% url 'users:user-login' %}">Login</a>
-        <a href="{% url 'users:user-register' %}">Register</a>
+        <div class="home-button">
+            <a href="{% url 'users:user-login' %}">Login</a>
+        </div>
+        <div class="home-button">
+            <a href="{% url 'users:user-register' %}">Register</a>
+        </div>
     </div>
     {% endif %}
 </div>

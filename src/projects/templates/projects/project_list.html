@@ -7,6 +7,9 @@
 <title>Project List</title>
 <div class="project-container">
 <h1>Projects</h1>
+    <div>
+        <a href="{% url 'projects:project-create' %}" class="project-create">Create Project</a>
+    </div>
 {% if user.is_authenticated %}
 <div class="project-list">
     {% if project_list.all %}
@@ -69,11 +72,6 @@
     {% endif %}
      
 </div>
-    <div>
-        <a href="{% url 'projects:project-create' %}" class="project-create">Create Project</a>
-    </div>
-        
-   
 {% else %}
 <div class="no-projects">
     <label class="no-projects">If you were logged in your projects would go here.</label>

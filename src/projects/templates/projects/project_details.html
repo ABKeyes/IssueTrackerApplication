@@ -6,8 +6,8 @@
 <div class="project-container">
     <div class="project">
         <h1>{{project.name}}</h1>
-        <h2>Owner: {{ project.user.username }}</h2>
         <div class="project-details">
+            <h2>Owner: {{ project.user.username }}</h2>
             <div class="project-field">
                 <h2>Summary:</h2>
                 {{project.summary}}
@@ -33,6 +33,7 @@
             <a href="{{ project.get_add_user_url }}">Add User</a>
             <a href="{{ project.get_delete_url }}">Delete</a>
             {% endif %}
+            <a href="{% url 'projects:project-list' %}">Back</a>
         </div>
         <div class="project-users">
             <h2>Project Users:</h2>
@@ -84,13 +85,19 @@
                     <div class="issue-field">
                         <h2>Tags:</h2>
                         <div class="tag-list">
+                        {% with issue.get_tags as tags %}
+                        {% if tags.all %}
                         {% for tag in tags %}
-                            {% if tag.issue.issueName == issue.issueName %}
                             <div class="tag">
                                 {{ tag.name }}
                             </div>
-                            {% endif %}
                         {% endfor %}
+                        {% else %}
+                        <div class="tag-list">
+                            No tags.
+                        </div>
+                        {% endif %}
+                        {% endwith %}
                         </div>
                     </div>
                 </div>

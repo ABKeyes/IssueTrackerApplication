@@ -106,9 +106,9 @@ DATABASES = {
     }
 }
 
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
+#import dj_database_url
+#db_from_env = dj_database_url.config(conn_max_age=600)
+#DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -137,7 +137,7 @@ LOGIN_URL = 'users:user-login'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'PST'
+TIME_ZONE = 'America/Los_Angeles'
 
 USE_I18N = True
 

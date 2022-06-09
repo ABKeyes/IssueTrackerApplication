@@ -8,16 +8,19 @@
 }
 
 .project-container, .issue-container {
-    margin-top: 20px;
+    padding: 20px;
+    padding-bottom: 0;
     margin-left: auto;
     margin-right: auto;
-    width: 40%;
+    width: 60%;
+    height: 100%;
+    background-color: #c2f1ea;
 }
 
 .project-container a, .submit, .issue-container a {
     text-align: center;
     padding: 10px 15px;
-    background-color: dimgrey;
+    background-color: #35D0BA;
     margin-top: 10px;
     margin-bottom: 10px;
     color: white;
@@ -28,39 +31,49 @@
     font-size: 20px;
 }
 
+.project-container a:hover, .submit:hover, .issue-container a:hover {
+    background-color: #72decf;
+    color: black;
+}
+
 .tag a, .user-field a {
     padding: 0;
     padding-top: 1px;
     color: black;
-    background-color: white;
+    background-color: #c2f1ea;
+    font-size: 15px;
 }
 
 .tag label {
-    font-size: 25px;
+    font-size: 20px;
 }
 
-.tag a:hover, .user-field a:hover{
+.tag a:hover, .user-field a:hover {
     color: red;
+    background-color: #c2f1ea;
 }
 
 .tag, .user-field {
     margin-bottom: 5px;
-    font-size: 20px;
+    font-size: 15px;
     height: fit-content;
 }
 
 textarea {
     width: 90%;
-    height: 50%;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     border-radius: 15px;
     resize: none;
+    padding: 5px;
+    background-color: #ebfaf8;
 }
 
-select, select:active, select:hover {
+input[type='text' i], select, select:active, select:hover {
     border-radius: 10px;
+    padding-left: 3px;
+    background-color: #ebfaf8;
 }
 
 select:focus {
@@ -72,6 +85,11 @@ select:focus {
     width: 65%;
     height: auto;
     vertical-align: top;
+    
+}
+
+.issue-details, .project-details {
+    border-right: 1px solid;
 }
 
 .issue-tags, .project-users {
@@ -117,13 +135,22 @@ select:focus {
     border-radius: 10px;
 }
 
-.project, .issue, .comment {
+.project, .issue, .comment, .comment:last-of-type {
     display: block;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border: 1px solid;
-    border-radius: 25px;
+    border-bottom: 1px solid;
     padding: 15px;
+}
+
+.comment {
+    border-bottom: 0;
+}
+
+.comment:first-of-type {
+    margin-top: 10px;
+}
+
+.project:last-of-type, .issue:last-of-type {
+    border-bottom: 0px;
 }
 
 .comment-description, .comment-timestamp {
@@ -146,12 +173,24 @@ select:focus {
 }
 
 .no-comments, .no-tags, .tag-list {
-    margin-top: 20px;
+    padding-left: 5px;
 }
 
-h1, h2, h3 {
+.no-comments {
+    margin-top: 15px;
+}
+
+.comment-list, .issue-list {
+    padding: 10px;
+}
+
+h1 {
     margin-top: 0;
     margin-bottom: 15px;
+}
+h2, h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
 }
 
 .error {

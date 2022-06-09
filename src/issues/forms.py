@@ -20,6 +20,7 @@ class CreateIssueForm(forms.ModelForm):
                                   widget=forms.Textarea(
                                       attrs={
                                           "placeholder": "Description",
+                                         
                                           }))
 
     status = forms.ChoiceField(choices = status_choices)
@@ -34,6 +35,7 @@ class UpdateIssueForm(forms.ModelForm):
                                   widget=forms.Textarea(
                                       attrs={
                                           "placeholder": "Description",
+                                         
                                           }))
 
     status = forms.ChoiceField(choices = status_choices)

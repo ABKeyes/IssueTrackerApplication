@@ -18,18 +18,20 @@
                 {{ form.status }}
             </div>
             <input type="submit" value="Update" class="submit" />
+            <a href="{{ issue.get_add_tag }}">Add tag</a>
             <a href="{{ issue.get_delete_url }}">Delete</a>
             <a href="{{ issue.get_project_url }}">Back</a>
         </form>
-        <div class="issue-details">
+        <div class="issue-tags">
             <div class="issue-field">
                 <h2>Tags:</h2>
-                <a href="{{ issue.get_add_tag }}">Add tag</a>
                 {% if tags.all %}
                 <div class="tag-list">
                     {% for tag in tags %}
                     <div class="tag">
-                        {{ tag.name }}
+                        <label>
+                            {{ tag.name }}
+                        </label>
                         <a href="{{ tag.get_delete_tag_url }}" class="tag-a">&#10006</a>
                     </div>
                     {% endfor %}
@@ -45,9 +47,13 @@
         <a href="{{ issue.get_comment_create_url }}">Add commment</a>
         {% if comments.all %}
             {% for comment in comments %}
-                <div class="issue">
-                    {{ comment.timecreated }}
-                    {{ comment.description }}
+                <div class="comment">
+                    <div class="comment-description">
+                        {{ comment.description }}
+                    </div>
+                    <div class="comment-timestamp">
+                        {{ comment.timecreated }}
+                    </div>
                 </div>
             {% endfor %}
         {% else %}

@@ -38,6 +38,31 @@
         
     </div>
     {% endfor %}
+    {% for ProjectForm in membershipset %}
+        <div class="project">
+            <h2>{{ ProjectForm.project.name }}</h2>
+            <div class="project-field">
+                <h3>Summary:</h3>
+                {{ ProjectForm.project.summary }}
+            </div>
+            <div class="project-field">
+                <h3>Status:</h3>
+                {% if ProjectForm.project.status == 'Closed' %}
+                <div class="status-closed">
+                {% elif ProjectForm.project.status == 'Open' %}
+                <div class="status-open">
+                {% else %}
+                <div class="status-dis">
+                {% endif %}
+                    {{ ProjectForm.project.status }}
+                </div>
+            </div>
+        
+            <div class="project-field">
+                <a href="{{ ProjectForm.project.get_absolute_url }}">Select</a>
+            </div>
+        </div>
+    {% endfor %}
 
     {% else %}
     <div class="project-list">There are no projects</div>

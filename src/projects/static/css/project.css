@@ -9,12 +9,12 @@
 
 .project-container, .issue-container {
     padding: 20px;
-    padding-bottom: 0;
     margin-left: auto;
     margin-right: auto;
     width: 60%;
     height: 100%;
     background-color: #c2f1ea;
+
 }
 
 .project-container a, .submit, .issue-container a {
@@ -111,7 +111,7 @@ select:focus {
 }
 
 .no-projects {
-    display: block;
+    display: inline;
     margin-bottom: 20px;
 }
 

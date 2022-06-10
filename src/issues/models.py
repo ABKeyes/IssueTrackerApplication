@@ -17,6 +17,10 @@ class Issue(models.Model):
     status = models.CharField(max_length=20, default="Open")
     project = models.ForeignKey(Project, on_delete=models.CASCADE)
 
+    def get_tags(self):
+        print("getting tags")
+        return Tag.objects.filter(issue=self)
+    
     def get_absolute_url(self):
         return reverse("projects:issues:issue-details", kwargs={
                                                             "project_id": self.project.id, 

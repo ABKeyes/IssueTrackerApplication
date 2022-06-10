@@ -137,7 +137,7 @@ LOGIN_URL = 'users:user-login'
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'PST'
+TIME_ZONE = 'America/Los_Angeles'
 
 USE_I18N = True
 

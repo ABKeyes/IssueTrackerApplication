@@ -113,13 +113,11 @@ def project_details_view(request, project_id):
         return redirect('home')
 
     issueset = Issue.objects.filter(project=obj).order_by('-status')
-    tags = Tag.objects.filter(issue__in=issueset)
 
     context = {
         "project": obj,
         "issueset": issueset,
         "users": users,
-        "tags": tags,
         "owner": True,
         }
 

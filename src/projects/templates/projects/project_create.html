@@ -14,19 +14,19 @@
         <form method="POST">
             {% csrf_token %}
             <div class="project-field">
-                <label class="project-field-label">Project Name</label>
+                <h2>Project Name</h2>
                 {{ form.name }}
             </div>
             <div class="project-field">
-                <label class="project-field-label">Summary:</label>
+                <h2>Summary:</h2>
                 {{ form.summary }}
             </div>
             <div class="project-field">
-                <label class="project-field-label">Description:</label>
+                <h2>Description:</h2>
                 {{ form.description }}
             </div>
             <div class="project-field">
-                <label class="project-field-label">Status:</label>
+                <h2>Status:</h2>
                 {{ form.status }}
             </div>
             <div class="project-field">

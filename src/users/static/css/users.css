@@ -6,7 +6,6 @@
 }
 
 h1 {
-    color: white;
     margin-top: 0;
 }
 
@@ -16,7 +15,7 @@ h1 {
 }
 
 .user-input {
-    background-color: dimgrey;
+    background-color: #c2f1ea;
     margin-top: 40px;
     display: flex;
     flex-direction: column;
@@ -26,6 +25,7 @@ h1 {
     max-width: 250px;
     margin-left: auto;
     margin-right: auto;
+    border-radius: 20px;
 }
 
 .s{
@@ -33,7 +33,7 @@ h1 {
 
 }
 a {
-    color: white;
+
 }
 
 .error {
@@ -41,9 +41,24 @@ a {
 }
 
 .existing-user{
-    color: white;
 }
 
+input[type='submit'] {
+    background-color: #D0354B;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    border: hidden;
+    white-space: nowrap;
+    font-size: 20px;
+}
+
+input[type='submit']:hover {
+    background-color: #E08693;
+    color: black;
+}
 
 .user-submit {
     text-align: center;
@@ -56,4 +71,7 @@ a {
     width: 200px;
     height: 30px;
     font-size: 20px;
+    border-radius: 15px;
+    background-color: #ebfaf8;
+    padding-left: 5px;
 }

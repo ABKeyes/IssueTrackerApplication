@@ -55,7 +55,9 @@
     
     <div class="issue-list">
         <h1>Issues</h1>
-        <a href="{{ project.get_issue_create_url }}">Create Issue</a>
+        <div class="create-header">
+            <a href="{{ project.get_issue_create_url }}">Create Issue</a>
+        </div>
         {% if issueset.all %}
             {% for issue in issueset %}
             <div class="issue">

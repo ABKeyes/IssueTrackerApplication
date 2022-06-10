@@ -11,16 +11,21 @@ body {
     overflow: hidden;
 }
 
+
+
 .nav-container a, .nav-title a{
     float: left;
     color: white;
     text-align: center;
     padding: 10px 15px;
     text-decoration: none;
+    font-size: 24px;
 }
 
-.nav-title {
-    font-size: 40px;
+.user {}
+
+.nav-title a{
+    font-size: 50px !important;
 }
 
 .nav-container a:hover, .home-container a:hover {
@@ -69,6 +74,7 @@ body {
     color: white;
     float: left;
     padding: 10px 15px;
+    font-size: 24px;
 }
 
 .home-container {

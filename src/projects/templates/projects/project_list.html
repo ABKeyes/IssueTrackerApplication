@@ -65,13 +65,13 @@
     {% endfor %}
 
     {% else %}
-    <div class="project-list">There are no projects</div>
+    <div class="project-list">There are no projects, you should create some.</div>
+    <a href="{% url 'projects:project-create' %}">Create Project</a>
     {% endif %}
      
 </div>
 {% else %}
 <div class="no-projects">
-    
         <label class="no-projects">If you were logged in your projects would go here.</label>
         <a href="{% url 'users:user-login' %}">Login</a>
 </div>

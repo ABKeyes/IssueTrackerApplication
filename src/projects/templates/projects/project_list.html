@@ -7,10 +7,11 @@
 <title>Project List</title>
 <div class="project-container">
 <h1>Projects</h1>
+    
+{% if user.is_authenticated %}
     <div class="create-header">
         <a href="{% url 'projects:project-create' %}">Create Project</a>
     </div>
-{% if user.is_authenticated %}
 <div class="project-list">
     {% if project_list.all %}
     {% for project in project_list %}
